@@ -1,8 +1,8 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
-
+## makeCacheMatrix creates and returns a list of functions:
+## setdata: Changes the data of the CacheMatrix x and resets the inverse.
+## getdata: Returns the data contained in x.
+## setinvert: Calculates the invert of the matrix x.
+## getinvert: Returns the invert of the matrix x --> interted_mat.
 
 
 makeCacheMatrix <- function(x = matrix()) {
@@ -18,7 +18,9 @@ list(setdata = setdata, getdata = getdata, setinvert = setinvert, getinvert = ge
 }
 
 
-## Write a short comment describing this function
+
+## Returns the invert of the matrix x.
+##In case the invert is cached, no operation is made and the cached value is returned.
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
