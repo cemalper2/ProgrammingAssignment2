@@ -19,19 +19,21 @@ list(setdata = setdata, getdata = getdata, setinvert = setinvert, getinvert = ge
 
 
 
-## Returns the invert of the matrix x.
-##In case the invert is cached, no operation is made and the cached value is returned.
+## Returns the inverse of the matrix x.
+##In case the inverse is cached, no operation is made and the cached value is returned.
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-  inv <- x$getinvert()
-  if(!is.null(inv)) {
-    message("getting cached data")
+## Return a matrix that is the inverse of 'x'
+  
+  
+  inv <- x$getinvert()              ## Gets the inverted value of matrix x
+  if(!is.null(inv)) {               ## null returned if it is not calculated before
+    message("getting cached data")  ## if inv!=NULL, then it returns the cached value.
     return(inv)
   }
-  data <- x$getdata()
-  inv <- solve(as.matrix(data))
-  x$setinvert(inv)
-  inv
+  data <- x$getdata()               ## inverse not calculated, gets the matrix x.
+  inv <- solve(as.matrix(data))     ## Calculate the inverse
+  x$setinvert(inv)                  ## sets the invert (caches).
+  inv                               ## returns the value
   
 }
